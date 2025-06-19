@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { GeistSans } from "geist/font/sans";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Pixora Labs",
@@ -13,8 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(GeistSans.variable, "antialiased")}
+    >
+      <body className={GeistSans.className}>{children}</body>
     </html>
   );
 }
